@@ -33,6 +33,11 @@ class HistoryActivity : AppCompatActivity() {
 
         // Get item date
         getAllComptetedDates(dao)
+
+        // Button delete all items
+        binding.btnAllDelete.setOnClickListener {
+            deleteAllDate(dao)
+        }
     }
 
     private fun setToolBar() {
@@ -46,30 +51,6 @@ class HistoryActivity : AppCompatActivity() {
         binding.toolbarHistory.setNavigationOnClickListener {
             onBackPressed()
         }
-    }
-
-    @SuppressLint("SetTextI18n")
-    private fun customDialogDelete() {
-        val customDialog = Dialog(this)
-        val dialogBinding = DialogCostumeBackConfirmationBinding.inflate(layoutInflater)
-
-        customDialog.setContentView(dialogBinding.root)
-        customDialog.setCanceledOnTouchOutside(false)
-        customDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
-        // Set text
-        dialogBinding.tvDescription.text = "Apakah anda yakin ingin menghapus histori ?"
-
-        dialogBinding.tvYes.setOnClickListener {
-            // We will destroy activity
-            this@HistoryActivity.finish()
-            customDialog.dismiss()
-        }
-        dialogBinding.tvNo.setOnClickListener {
-            customDialog.dismiss()
-        }
-        // Display dialog
-        customDialog.show()
     }
 
     private fun getAllComptetedDates(historyDao: HistoryDao) {
@@ -95,10 +76,12 @@ class HistoryActivity : AppCompatActivity() {
 
                     binding.tvExercise.visibility = View.VISIBLE
                     binding.rvHistory.visibility = View.VISIBLE
+                    binding.btnAllDelete.visibility = View.VISIBLE
                     binding.tvNodata.visibility = View.INVISIBLE
                 } else {
                     binding.tvExercise.visibility = View.INVISIBLE
                     binding.rvHistory.visibility = View.INVISIBLE
+                    binding.btnAllDelete.visibility = View.INVISIBLE
                     binding.tvNodata.visibility = View.VISIBLE
                 }
             }
@@ -109,6 +92,11 @@ class HistoryActivity : AppCompatActivity() {
         lifecycleScope.launch {
             historyDao.delete(HistoryEntity(date))
             Toast.makeText(this@HistoryActivity, "Histori terhapus", Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun deleteAllDate(historyDao: HistoryDao) {
+        lifecycleScope.launch {
+            historyDao.deleteAll()
         }
     }
 }

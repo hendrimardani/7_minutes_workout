@@ -22,7 +22,7 @@
         android:id="@+id/tv_nodata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Data Available"
+        android:text="Belum Ada Histori"
         android:textSize="25sp"
         android:textStyle="bold"
         android:visibility="visible"
@@ -35,7 +35,7 @@
         android:id="@+id/tv_exercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exercise Completed"
+        android:text="Histori Terselesaikan"
         android:textColor="@color/light_gray"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -52,6 +52,17 @@
         android:visibility="invisible"
         tools:visibility="visible"
         app:layout_constraintTop_toBottomOf="@id/tv_exercise"
+        app:layout_constraintBottom_toTopOf="@id/btn_all_delete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/btn_all_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HAPUS SEMUA HISTORI"
+        android:visibility="invisible"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
