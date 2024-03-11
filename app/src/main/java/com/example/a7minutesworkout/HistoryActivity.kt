@@ -1,5 +1,9 @@
 package com.example.a7minutesworkout
 
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,6 +15,7 @@ import com.example.a7minutesworkout.Databases.HistoryDao
 import com.example.a7minutesworkout.Databases.HistoryEntity
 import com.example.a7minutesworkout.HistoryAdapter.HistoryAdapter
 import com.example.a7minutesworkout.databinding.ActivityHistoryBinding
+import com.example.a7minutesworkout.databinding.DialogCostumeBackConfirmationBinding
 import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity() {
@@ -41,6 +46,30 @@ class HistoryActivity : AppCompatActivity() {
         binding.toolbarHistory.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun customDialogDelete() {
+        val customDialog = Dialog(this)
+        val dialogBinding = DialogCostumeBackConfirmationBinding.inflate(layoutInflater)
+
+        customDialog.setContentView(dialogBinding.root)
+        customDialog.setCanceledOnTouchOutside(false)
+        customDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // Set text
+        dialogBinding.tvDescription.text = "Apakah anda yakin ingin menghapus histori ?"
+
+        dialogBinding.tvYes.setOnClickListener {
+            // We will destroy activity
+            this@HistoryActivity.finish()
+            customDialog.dismiss()
+        }
+        dialogBinding.tvNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+        // Display dialog
+        customDialog.show()
     }
 
     private fun getAllComptetedDates(historyDao: HistoryDao) {

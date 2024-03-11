@@ -1,11 +1,17 @@
 package com.example.a7minutesworkout.HistoryAdapter
 
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a7minutesworkout.Databases.HistoryEntity
+import com.example.a7minutesworkout.HistoryActivity
 import com.example.a7minutesworkout.R
+import com.example.a7minutesworkout.databinding.DialogCostumeBackConfirmationBinding
 import com.example.a7minutesworkout.databinding.ItemHistoryRowBinding
 
 class HistoryAdapter(
@@ -44,7 +50,32 @@ class HistoryAdapter(
         }
 
         holder.ivDelete.setOnClickListener {
-            deleteHistory.invoke(date)
+            customDialogDelete(holder, date)
         }
+    }
+    @SuppressLint("SetTextI18n")
+    private fun customDialogDelete(holder: ViewHolder, date: String) {
+        val context = holder.itemView.context
+        val customDialog = Dialog(context)
+        val dialogBinding = DialogCostumeBackConfirmationBinding
+            .inflate(LayoutInflater.from(context))
+
+        customDialog.setContentView(dialogBinding.root)
+        customDialog.setCanceledOnTouchOutside(false)
+        customDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // Set text
+        dialogBinding.tvDescription.text = "Apakah anda yakin ingin menghapus histori ?"
+
+        dialogBinding.tvYes.setOnClickListener {
+            // We will destroy activity
+            deleteHistory.invoke(date)
+            customDialog.dismiss()
+        }
+        dialogBinding.tvNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+        // Display dialog
+        customDialog.show()
     }
 }
