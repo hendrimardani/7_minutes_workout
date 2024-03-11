@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minutesworkout.Databases.HistoryApp
@@ -36,7 +37,7 @@ class HistoryActivity : AppCompatActivity() {
 
         // Button delete all items
         binding.btnAllDelete.setOnClickListener {
-            deleteAllDate(dao)
+            customDialogDeleteAllItem(dao)
         }
     }
 
@@ -51,6 +52,33 @@ class HistoryActivity : AppCompatActivity() {
         binding.toolbarHistory.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun customDialogDeleteAllItem(historyDao: HistoryDao) {
+        val customDialog = Dialog(this)
+        val dialogBinding = DialogCostumeBackConfirmationBinding
+            .inflate(layoutInflater)
+
+        customDialog.setContentView(dialogBinding.root)
+        customDialog.setCanceledOnTouchOutside(false)
+        customDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+        // Set text
+        dialogBinding.tvTitle.setTextColor(ContextCompat
+            .getColor(this@HistoryActivity, R.color.red))
+        dialogBinding.tvDescription.text = "Apakah anda yakin ingin menghapus semua histori ?"
+
+        dialogBinding.tvYes.setOnClickListener {
+            // Call deleteAllDates method
+            deleteAllDates(historyDao)
+            customDialog.dismiss()
+        }
+        dialogBinding.tvNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+        // Display dialog
+        customDialog.show()
     }
 
     private fun getAllComptetedDates(historyDao: HistoryDao) {
@@ -94,7 +122,7 @@ class HistoryActivity : AppCompatActivity() {
             Toast.makeText(this@HistoryActivity, "Histori terhapus", Toast.LENGTH_LONG).show()
         }
     }
-    private fun deleteAllDate(historyDao: HistoryDao) {
+    private fun deleteAllDates(historyDao: HistoryDao) {
         lifecycleScope.launch {
             historyDao.deleteAll()
         }
