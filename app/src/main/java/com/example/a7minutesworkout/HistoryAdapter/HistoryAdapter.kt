@@ -17,6 +17,7 @@ class HistoryAdapter(
         val llHistory = binding.llHistory
         val tvNumber = binding.tvNumber
         val tvDate = binding.tvDate
+        val ivDelete = binding.ivDelete
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -40,6 +41,10 @@ class HistoryAdapter(
         } else {
             holder.llHistory.setBackgroundColor(ContextCompat
                 .getColor(holder.itemView.context, R.color.white))
+        }
+
+        holder.ivDelete.setOnClickListener {
+            deleteHistory.invoke(date)
         }
     }
 }

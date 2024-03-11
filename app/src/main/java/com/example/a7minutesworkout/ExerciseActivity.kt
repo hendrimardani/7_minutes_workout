@@ -199,7 +199,6 @@ class ExerciseActivity : AppCompatActivity() {
             exerciseTimer!!.cancel()
             exerciseProgress = 0
         }
-
     }
     private fun speakOut(text: String) {
         tts!!.language = Locale.US
