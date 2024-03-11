@@ -3,6 +3,8 @@ package com.example.a7minutesworkout
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -60,18 +62,25 @@ class ExerciseActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun customDialogForBackButton() {
         val customDialog = Dialog(this)
         val dialogBinding = DialogCostumeBackConfirmationBinding.inflate(layoutInflater)
+
         customDialog.setContentView(dialogBinding.root)
         customDialog.setCanceledOnTouchOutside(false)
+        customDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-        dialogBinding.btnYes.setOnClickListener {
+        // Set text
+        dialogBinding.tvDescription.text = "Ini akan memberhentikan olahragamu. Kamu sudah datang" +
+                " sejauh ini, apakah kamu yakin ingin keluar ?"
+
+        dialogBinding.tvYes.setOnClickListener {
             // We will destroy activity
             this@ExerciseActivity.finish()
             customDialog.dismiss()
         }
-        dialogBinding.btnNo.setOnClickListener {
+        dialogBinding.tvNo.setOnClickListener {
             customDialog.dismiss()
         }
         // Display dialog
