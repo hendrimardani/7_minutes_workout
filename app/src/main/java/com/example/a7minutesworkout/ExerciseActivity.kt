@@ -101,7 +101,7 @@ class ExerciseActivity : AppCompatActivity() {
 
     private fun setupRestView() {
         try {
-            val soundURI = Uri.parse("android.resource://com.example.a7minutesworkout/" + R.raw.output_pria)
+            val soundURI = Uri.parse("android.resource://com.example.a7minutesworkout/" + R.raw.siapsiap_wanita)
             val player = MediaPlayer.create(applicationContext, soundURI)
             player.isLooping = false
             player.start()
