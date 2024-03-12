@@ -22,12 +22,7 @@ class FinishActivity : AppCompatActivity() {
         binding = ActivityFinishBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Call object actionBar
-        setSupportActionBar(binding.toolBarFinish)
-        // Back to home
-        if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        }
+        setToolBar()
         binding.toolBarFinish.setNavigationOnClickListener {
             onBackPressed()
         }
@@ -40,6 +35,17 @@ class FinishActivity : AppCompatActivity() {
         addDateToDatabase(dao)
     }
 
+    private fun setToolBar() {
+        // Call object actionBar
+        setSupportActionBar(binding.toolBarFinish)
+        // Back to home
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            supportActionBar!!.title = "7 Menit Olahraga"
+            // Change font style text
+            binding.toolBarFinish.setTitleTextAppearance(this@FinishActivity, R.style.font_tangerine_bold)
+        }
+    }
     private fun addDateToDatabase(historyDao: HistoryDao) {
         val c = Calendar.getInstance()
         val dateTime = c.time

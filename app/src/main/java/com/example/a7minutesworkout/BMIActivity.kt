@@ -1,10 +1,13 @@
 package com.example.a7minutesworkout
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import com.example.a7minutesworkout.databinding.ActivityBmiBinding
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.math.BigDecimal
 import java.math.RoundingMode
 
@@ -44,7 +47,9 @@ class BMIActivity : AppCompatActivity() {
         // Back to home
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-            supportActionBar!!.title = "CALCULATOR"
+            supportActionBar!!.title = "7 Menit Olahraga"
+            // Change font style text
+            binding.toolbarBMI.setTitleTextAppearance(this@BMIActivity, R.style.font_tangerine_bold)
         }
         binding.toolbarBMI.setNavigationOnClickListener {
             onBackPressed()
@@ -104,6 +109,7 @@ class BMIActivity : AppCompatActivity() {
         return isValid
     }
 
+    @SuppressLint("ResourceType")
     private fun calculateUnits() {
         if (currentView == METRIC_UNITS_VIEW) {
             if (validateMetricUnits()) {
@@ -114,7 +120,13 @@ class BMIActivity : AppCompatActivity() {
                 displayBMIResult(bmi)
 
             } else {
-                Toast.makeText(this, "Please enter valid values!", Toast.LENGTH_LONG).show()
+                MotionToast.createToast(this@BMIActivity,
+                    "GAGAL ☹️",
+                    "Kolom tidak boleh kosong !!!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.SHORT_DURATION,
+                    ResourcesCompat.getFont(this, R.font.turret_road_bold))
             }
         } else {
             if (validateUsUnits()) {
@@ -128,7 +140,13 @@ class BMIActivity : AppCompatActivity() {
                 displayBMIResult(bmi)
 
             } else {
-                Toast.makeText(this, "Please enter valid values!", Toast.LENGTH_LONG).show()
+                MotionToast.createToast(this@BMIActivity,
+                    "GAGAL ☹️",
+                    "Kolom tidak boleh kosong !!!",
+                    MotionToastStyle.ERROR,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.SHORT_DURATION,
+                    ResourcesCompat.getFont(this, R.font.turret_road_bold))
             }
         }
     }
@@ -149,26 +167,26 @@ class BMIActivity : AppCompatActivity() {
         val bmiDescription: String
 
         if (bmi.compareTo(15f) <= 0) {
-            bmiTitle = "Very severely underweight"
-            bmiDescription = "Oops! You really need to make better care of yourself! Eat more again !"
+            bmiTitle = "Berat badan sangat kurang"
+            bmiDescription = "Ups! Anda benar-benar harus menjaga diri Anda dengan lebih baik! Makan lebih banyak lagi!"
         } else if (bmi.compareTo(16f) > 0 && bmi.compareTo(18.5f) <= 0) {
-            bmiTitle = "Underweight"
-            bmiDescription = "Oops! You really need to make better care of yourself! Eat more again !"
+            bmiTitle = "Berat badan kurang"
+            bmiDescription = "Ups! Anda benar-benar harus menjaga diri Anda dengan lebih baik! Makan lebih banyak lagi!"
         } else if (bmi.compareTo(18.5f) > 0 && bmi.compareTo(25f) <= 0) {
             bmiTitle = "Normal"
-            bmiDescription = "Congratulations! You are in a good shape!"
+            bmiDescription = "Selamat! Anda berada dalam kondisi yang baik!"
         } else if (bmi.compareTo(25f) > 0 && bmi.compareTo(30f) <= 0) {
-            bmiTitle = "Overweight"
-            bmiDescription = "Oops! You really need to take care of yourself! Workout solutions"
+            bmiTitle = "Kegemukan"
+            bmiDescription = "Ups! Anda benar-benar harus menjaga diri sendiri! Solusi latihan"
         } else if (bmi.compareTo(30f) > 0 && bmi.compareTo(35f) <= 0) {
-            bmiTitle = "Obese Class | Moderately obese"
-            bmiDescription = "Oops! You really need to take care of yourself! Workout solutions"
+            bmiTitle = "Kelas Obesitas | Obesitas sedang"
+            bmiDescription = "Ups! Anda benar-benar harus menjaga diri sendiri! Solusi latihan"
         } else if (bmi.compareTo(35f) > 0 && bmi.compareTo(40f) <= 0 ) {
-            bmiTitle = "Obese Class | Severely Obese"
-            bmiDescription = "OMG! You are in a very dangerous condition! Act now"
+            bmiTitle = "Kelas Obesitas | Obesitas Berat"
+            bmiDescription = "Anda berada dalam kondisi yang sangat berbahaya! Bertindaklah sekarang."
         } else {
-            bmiTitle = "Obese Class | Very Severely Obese"
-            bmiDescription = "OMG! You are in a very dangerous condition! Act now"
+            bmiTitle = "Kelas Obesitas | Obesitas Sangat Parah"
+            bmiDescription = "OMG! Anda berada dalam kondisi yang sangat berbahaya! Bertindaklah sekarang."
         }
 
         val bmiValue = BigDecimal(bmi.toDouble())
@@ -192,7 +210,13 @@ class BMIActivity : AppCompatActivity() {
             displayBMIResult(bmi)
 
         } else {
-            Toast.makeText(this, "Please enter valid values", Toast.LENGTH_LONG).show()
+            MotionToast.createToast(this@BMIActivity,
+                "GAGAL ☹️",
+                "Kolom tidak boleh kosong !!!",
+                MotionToastStyle.ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.SHORT_DURATION,
+                ResourcesCompat.getFont(this, R.font.turret_road_bold))
         }
     }
 

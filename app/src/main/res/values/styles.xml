@@ -6,7 +6,7 @@
         <item name="android:textSize">40sp</item>
     </style>
 
-    <style name="font_turret_road_bold">
+    <style name="font_turrent_road_bold">
         <item name="android:fontFamily">@font/turret_road_bold</item>
     </style>
 

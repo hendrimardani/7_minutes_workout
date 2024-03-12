@@ -53,6 +53,7 @@ class ExerciseActivity : AppCompatActivity() {
     private fun setToolBar() {
         // Call object actionBar
         setSupportActionBar(binding.toolBarExercise)
+        supportActionBar!!.title = "7 Menit Olahraga"
         // Change font style text
         binding.toolBarExercise.setTitleTextAppearance(this@ExerciseActivity, R.style.font_tangerine_bold)
         // Back to home

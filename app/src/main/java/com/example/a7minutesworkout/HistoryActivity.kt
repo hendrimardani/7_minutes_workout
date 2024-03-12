@@ -44,6 +44,9 @@ class HistoryActivity : AppCompatActivity() {
     private fun setToolBar() {
         // Call object actionBar
         setSupportActionBar(binding.toolbarHistory)
+        supportActionBar!!.title = "7 Menit Olahraga"
+        // Change font style text
+        binding.toolbarHistory.setTitleTextAppearance(this@HistoryActivity, R.style.font_tangerine_bold)
         // Back to home
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)

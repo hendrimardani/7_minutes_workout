@@ -38,7 +38,8 @@
             android:background="@drawable/units_tab_selector"
             android:checked="true"
             android:gravity="center"
-            android:text="METRIC UNITS"
+            android:text="UNIT METRIK"
+            style="@style/font_turrent_road_regular"
             android:textColor="@drawable/units_tab_text_color_selector"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -51,7 +52,8 @@
             android:background="@drawable/units_tab_selector"
             android:checked="false"
             android:gravity="center"
-            android:text="US UNITS"
+            android:text="UNIT US"
+            style="@style/font_turrent_road_regular"
             android:textColor="@drawable/units_tab_text_color_selector"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -74,7 +76,8 @@
             android:id="@+id/et_metric_unit_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="WEIGHT (in kg)"
+            android:hint="Berat (kg)"
+            style="@style/font_turrent_road_regular"
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -96,7 +99,8 @@
             android:id="@+id/et_metric_unit_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="HEIGHT (in cm)"
+            android:hint="Tinggi (cm)"
+            style="@style/font_turrent_road_regular"
             android:inputType="numberDecimal"
             android:textSize="16sp"
             tools:ignore="MissingConstraints" />
@@ -122,7 +126,8 @@
             android:id="@+id/et_us_unit_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="WEIGHT (in pounch)"
+            android:hint="Berat (pounch)"
+            style="@style/font_turrent_road_regular"
             android:inputType="numberDecimal"
             android:textSize="16sp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -154,6 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Feet"
+                style="@style/font_turrent_road_regular"
                 android:inputType="numberDecimal"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -173,7 +179,8 @@
                 android:id="@+id/et_us_unit_inch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Inch"
+                android:hint="Inc"
+                style="@style/font_turrent_road_regular"
                 android:inputType="numberDecimal"
                 android:textSize="16sp" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -195,7 +202,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="YOUR BMI"
+            android:text="BMI Kamu"
             android:textSize="20sp"
             android:textColor="#9F9F9F"
             android:gravity="center"
@@ -235,7 +242,8 @@
         android:id="@+id/btn_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CALCULATE"
+        android:text="HITUNG"
+        style="@style/font_turrent_road_bold"
         android:backgroundTint="@color/dark_green"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/til_metric_unit_height"
@@ -246,7 +254,8 @@
         android:id="@+id/btn_calculate_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CALCULATE"
+        android:text="HITUNG"
+        style="@style/font_turrent_road_bold"
         android:backgroundTint="@color/dark_green"
         android:visibility="invisible"
         tools:visibility="visible"
