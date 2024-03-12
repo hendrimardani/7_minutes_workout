@@ -1,4 +1,6 @@
-package com.example.a7minutesworkout
+package com.example.a7minutesworkout.Dataclass
+
+import com.example.a7minutesworkout.R
 
 object Constants {
     fun defaultArrayList(): ArrayList<ExerciseModel> {

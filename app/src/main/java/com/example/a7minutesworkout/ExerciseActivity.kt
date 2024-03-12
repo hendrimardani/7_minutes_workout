@@ -13,8 +13,10 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.a7minutesworkout.Dataclass.Constants
+import com.example.a7minutesworkout.Dataclass.ExerciseModel
+import com.example.a7minutesworkout.HistoryAdapter.ExerciseStatusAdapter
 import com.example.a7minutesworkout.databinding.ActivityExerciseBinding
 import com.example.a7minutesworkout.databinding.DialogCostumeBackConfirmationBinding
 import java.util.Locale

@@ -1,9 +1,11 @@
-package com.example.a7minutesworkout
+package com.example.a7minutesworkout.HistoryAdapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a7minutesworkout.Dataclass.ExerciseModel
+import com.example.a7minutesworkout.R
 import com.example.a7minutesworkout.databinding.ItemExerciseStatusBinding
 
 class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>):
@@ -30,14 +32,19 @@ class ExerciseStatusAdapter(val items: ArrayList<ExerciseModel>):
         when {
             model.getIsSelected() -> {
                 holder.tvItem.background = ContextCompat.getDrawable(
-                    holder.itemView.context, R.drawable.item_circular_color_white_background_selected)
+                    holder.itemView.context,
+                    R.drawable.item_circular_color_white_background_selected
+                )
             }
             model.getIsCompleted() -> {
                 holder.itemView.background = ContextCompat.getDrawable(
-                    holder.itemView.context, R.drawable.item_circular_color_green_background_completed)
+                    holder.itemView.context,
+                    R.drawable.item_circular_color_green_background_completed
+                )
             } else -> {
                 holder.tvItem.background = ContextCompat.getDrawable(
-                    holder.itemView.context, R.drawable.item_circular_color_gray_background)
+                    holder.itemView.context, R.drawable.item_circular_color_gray_background
+                )
             }
         }
     }
