@@ -50,7 +50,7 @@ object Constants {
         exerciseList.add(plank)
 
         val pushUp = ExerciseModel(
-            5,
+            6,
             "Push Up",
             R.drawable.ic_push_up,
             false,
@@ -59,7 +59,7 @@ object Constants {
         exerciseList.add(pushUp)
 
         val pushUpRotation = ExerciseModel(
-            6,
+            7,
             "Push Up Rotation",
             R.drawable.ic_push_up_and_rotation,
             false,
@@ -68,7 +68,7 @@ object Constants {
         exerciseList.add(pushUpRotation)
 
         val squat = ExerciseModel(
-            7,
+            8,
             "Squat",
             R.drawable.ic_squat,
             false,
@@ -77,7 +77,7 @@ object Constants {
         exerciseList.add(squat)
 
         val stepUpOntoChair = ExerciseModel(
-            8,
+            9,
             "Step Up Onto Chair",
             R.drawable.ic_step_up_onto_chair,
             false,
@@ -86,7 +86,7 @@ object Constants {
         exerciseList.add(stepUpOntoChair)
 
         val tricepsDipOnChair = ExerciseModel(
-            9,
+            10,
             "Triceps Dip On Chair",
             R.drawable.ic_triceps_dip_on_chair,
             false,
@@ -95,13 +95,23 @@ object Constants {
         exerciseList.add(tricepsDipOnChair)
 
         val wallSit = ExerciseModel(
-            10,
+            11,
             "Wall Sit",
             R.drawable.ic_wall_sit,
             false,
             false
         )
         exerciseList.add(wallSit)
+
+        val sidePlank = ExerciseModel(
+            12,
+            "Side Plank",
+            R.drawable.ic_side_plank,
+            false,
+            false
+        )
+        exerciseList.add(sidePlank)
+
 
         return  exerciseList
     }
