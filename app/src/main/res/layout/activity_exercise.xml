@@ -8,9 +8,10 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBarExercise"
+        app:titleTextAppearance="@style/font_tangerine_bold"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#99005950"
+        android:background="@color/white"
         android:theme="@style/toolbarTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

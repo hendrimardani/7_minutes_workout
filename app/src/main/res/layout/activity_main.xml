@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Start"
+            style="@style/font_turret_road_bold"
             android:textColor="#555555"
             android:textSize="30sp" />
     </FrameLayout>
@@ -56,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="BMI"
+            style="@style/font_turret_road_bold"
             android:textSize="25dp"
             android:layout_gravity="center"
             android:textColor="@color/white" />
@@ -63,16 +65,19 @@
 
 
     <TextView
+        android:id="@+id/id_kalkulator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="CALCULATOR"
-        android:textSize="15dp"
+        android:text="KALKULATOR"
         android:textStyle="bold"
-        android:textColor="#00FF0A"
+        style="@style/font_turret_road_bold"
+        android:textSize="25sp"
+        android:textColor="@color/dark_green"
         app:layout_constraintTop_toBottomOf="@id/fl_bmi"
         app:layout_constraintStart_toStartOf="@id/fl_bmi"
-        app:layout_constraintEnd_toEndOf="@id/fl_bmi" />
+        app:layout_constraintEnd_toEndOf="@id/fl_bmi"
+        app:layout_constraintBottom_toBottomOf="@id/tv_histori"/>
 
 
     <FrameLayout
@@ -94,14 +99,17 @@
     </FrameLayout>
 
     <TextView
+        android:id="@+id/tv_histori"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CALENDAR"
-        android:textSize="16sp"
-        android:textColor="#00FF0A"
+        android:text="HISTORI"
+        style="@style/font_turret_road_bold"
+        android:textSize="25sp"
+        android:textColor="@color/dark_green"
         android:textStyle="bold"
         app:layout_constraintTop_toBottomOf="@id/fl_calendar"
         app:layout_constraintStart_toStartOf="@id/fl_calendar"
-        app:layout_constraintEnd_toEndOf="@id/fl_calendar" />
+        app:layout_constraintEnd_toEndOf="@id/fl_calendar"
+        app:layout_constraintBottom_toBottomOf="@id/id_kalkulator"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

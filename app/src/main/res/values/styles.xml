@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- For setting text toolbar -->
+    <style name="font_tangerine_bold">
+        <item name="android:fontFamily">@font/tangerine_bold</item>
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="font_turret_road_bold">
+        <item name="android:fontFamily">@font/turret_road_bold</item>
+    </style>
+
+    <style name="font_turrent_road_regular">
+        <item name="android:fontFamily">@font/turret_road_regular</item>
+    </style>
+</resources>
