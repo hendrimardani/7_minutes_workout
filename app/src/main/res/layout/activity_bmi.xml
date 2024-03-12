@@ -40,6 +40,7 @@
             android:gravity="center"
             android:text="UNIT METRIK"
             style="@style/font_turrent_road_regular"
+            app:buttonTint="@color/white"
             android:textColor="@drawable/units_tab_text_color_selector"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -203,6 +204,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="BMI Kamu"
+            style="@style/font_turrent_road_regular"
             android:textSize="20sp"
             android:textColor="#9F9F9F"
             android:gravity="center"
@@ -213,6 +215,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="25.01"
+            style="@style/font_turrent_road_regular"
             android:gravity="center"
             android:textSize="25sp"
             android:textColor="#9F9F9F"
@@ -223,6 +226,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="Overweight"
+            style="@style/font_turrent_road_regular"
             android:gravity="center"
             android:textSize="20sp"
             android:textColor="#9F9F9F" />
@@ -232,6 +236,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            style="@style/font_turrent_road_regular"
             android:textSize="15sp"
             android:textColor="#989898"
             tools:text="Oops!!! You really ..." />
