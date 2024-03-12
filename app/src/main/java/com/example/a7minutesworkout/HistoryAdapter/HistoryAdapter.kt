@@ -42,8 +42,8 @@ class HistoryAdapter(
 
         if (position % 2 == 0) {
             holder.llHistory.setBackgroundColor(ContextCompat
-                .getColor(holder.itemView.context, R.color.light_gray))
-            holder.tvDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.light_green))
+                .getColor(holder.itemView.context, R.color.light_gray_200))
+            holder.tvDate.setTextColor(ContextCompat.getColor(holder.itemView.context, R.color.black))
         } else {
             holder.llHistory.setBackgroundColor(ContextCompat
                 .getColor(holder.itemView.context, R.color.white))

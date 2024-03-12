@@ -11,6 +11,7 @@
         android:layout_width="40dp"
         android:layout_height="wrap_content"
         android:text = "1"
+        style="@style/font_turrent_road_regular"
         android:layout_gravity="center"
         android:gravity="center"
         android:textStyle="bold"
@@ -23,7 +24,8 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:text="date" />
+        android:text="date"
+        style="@style/font_turrent_road_regular" />
 
     <ImageView
         android:id="@+id/iv_delete"

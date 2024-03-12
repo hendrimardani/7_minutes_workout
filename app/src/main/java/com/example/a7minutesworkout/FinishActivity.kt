@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.a7minutesworkout.Databases.HistoryApp
 import com.example.a7minutesworkout.Databases.HistoryDao
 import com.example.a7minutesworkout.Databases.HistoryEntity
 import com.example.a7minutesworkout.databinding.ActivityFinishBinding
 import kotlinx.coroutines.launch
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
@@ -33,6 +36,13 @@ class FinishActivity : AppCompatActivity() {
 
         val dao = (application as HistoryApp).db.historyDao()
         addDateToDatabase(dao)
+        MotionToast.createToast(this@FinishActivity,
+            "HISTORI TELAH DITAKMBAHKAN ☹️",
+            "Silahkan cek di histori !!!",
+            MotionToastStyle.SUCCESS,
+            MotionToast.GRAVITY_BOTTOM,
+            MotionToast.LONG_DURATION,
+            ResourcesCompat.getFont(this, R.font.turret_road_bold))
     }
 
     private fun setToolBar() {
