@@ -40,9 +40,5 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.title = "7 Menit Olahraga"
         // Change font style text
         binding.toolbarMain.setTitleTextAppearance(this@MainActivity, R.style.font_tangerine_bold)
-        // Back to home
-        if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        }
     }
 }
