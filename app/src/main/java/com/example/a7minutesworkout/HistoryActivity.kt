@@ -55,10 +55,9 @@ class HistoryActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
-
     @SuppressLint("SetTextI18n")
     private fun customDialogDeleteAllItem(historyDao: HistoryDao) {
-        val customDialog = Dialog(this)
+        val customDialog = Dialog(this@HistoryActivity)
         val dialogBinding = DialogCostumeBackConfirmationBinding
             .inflate(layoutInflater)
 
@@ -83,11 +82,17 @@ class HistoryActivity : AppCompatActivity() {
         customDialog.show()
     }
 
+    private fun getCountItem(item: String) {
+        binding.lhtTvNumber.text = item
+    }
     private fun getAllComptetedDates(historyDao: HistoryDao) {
         lifecycleScope.launch {
             historyDao.fetchAllDates().collect {
                 val list = ArrayList(it)
                 setupListOfHistory(list, historyDao)
+
+                // get item count
+                getCountItem(list.size.toString())
             }
         }
     }
@@ -104,12 +109,12 @@ class HistoryActivity : AppCompatActivity() {
                         this@HistoryActivity, LinearLayoutManager.VERTICAL, false)
                     binding.rvHistory.adapter = historyAdapter
 
-                    binding.tvExercise.visibility = View.VISIBLE
+                    binding.llHistoryText.visibility = View.VISIBLE
                     binding.rvHistory.visibility = View.VISIBLE
                     binding.btnAllDelete.visibility = View.VISIBLE
                     binding.tvNodata.visibility = View.INVISIBLE
                 } else {
-                    binding.tvExercise.visibility = View.INVISIBLE
+                    binding.llHistoryText.visibility = View.INVISIBLE
                     binding.rvHistory.visibility = View.INVISIBLE
                     binding.btnAllDelete.visibility = View.INVISIBLE
                     binding.tvNodata.visibility = View.VISIBLE

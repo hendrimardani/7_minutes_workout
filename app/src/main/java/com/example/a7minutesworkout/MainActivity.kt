@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        setToolBar()
+
         binding.flStart.setOnClickListener {
             val intent = Intent(this@MainActivity, ExerciseActivity::class.java)
             startActivity(intent)
@@ -29,6 +31,18 @@ class MainActivity : AppCompatActivity() {
         binding.flCalendar.setOnClickListener {
             val intent = Intent(this@MainActivity, HistoryActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun setToolBar() {
+        // Call object actionBar
+        setSupportActionBar(binding.toolbarMain)
+        supportActionBar!!.title = "7 Menit Olahraga"
+        // Change font style text
+        binding.toolbarMain.setTitleTextAppearance(this@MainActivity, R.style.font_tangerine_bold)
+        // Back to home
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         }
     }
 }
