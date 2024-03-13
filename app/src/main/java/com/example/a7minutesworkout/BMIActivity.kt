@@ -1,10 +1,12 @@
 package com.example.a7minutesworkout
 
 import android.annotation.SuppressLint
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.get
 import com.example.a7minutesworkout.databinding.ActivityBmiBinding
 import www.sanju.motiontoast.MotionToast
 import www.sanju.motiontoast.MotionToastStyle
@@ -23,11 +25,6 @@ class BMIActivity : AppCompatActivity() {
 
         setToolBar()
         binding.btnCalculate.setOnClickListener {
-            displayResult()
-            calculateUnits()
-        }
-
-        binding.btnCalculate2.setOnClickListener {
             displayResult()
             calculateUnits()
         }
@@ -60,14 +57,12 @@ class BMIActivity : AppCompatActivity() {
         currentView = METRIC_UNITS_VIEW
         binding.tilMetricUnitWeight.visibility = View.VISIBLE
         binding.tilMetricUnitHeight.visibility = View.VISIBLE
+
         binding.tilUsUnitWeight.visibility = View.INVISIBLE
         binding.llDisplayLayout2.visibility = View.INVISIBLE
 
-        // Clear the text when doesn't select
-        binding.etMetricUnitWeight.text!!.clear()
-        binding.etMetricUnitHeight.text!!.clear()
-
         binding.llDisplayLayout.visibility = View.INVISIBLE
+
     }
 
     private fun makeVisibleUsUnitView() {
@@ -76,11 +71,6 @@ class BMIActivity : AppCompatActivity() {
         binding.tilMetricUnitHeight.visibility = View.INVISIBLE
         binding.tilUsUnitWeight.visibility = View.VISIBLE
         binding.llDisplayLayout2.visibility = View.VISIBLE
-
-        // Clear the text when doesn't select
-        binding.etUsUnitWeight.text!!.clear()
-        binding.etUsUnitFeet.text!!.clear()
-        binding.etUsUnitInch.text!!.clear()
 
         binding.llDisplayLayout.visibility = View.INVISIBLE
     }
@@ -193,8 +183,7 @@ class BMIActivity : AppCompatActivity() {
             .setScale(2, RoundingMode.HALF_EVEN).toString()
         // Visible and invisible layout
         binding.llDisplayLayout.visibility = View.VISIBLE
-        binding.btnCalculate.visibility = View.INVISIBLE
-        binding.btnCalculate2.visibility = View.VISIBLE
+        binding.btnCalculate.visibility = View.VISIBLE
 
         binding.tvTitle.text = bmiTitle
         binding.tvValues.text = bmiValue
