@@ -55,6 +55,7 @@ class HistoryActivity : AppCompatActivity() {
             onBackPressed()
         }
     }
+    
     @SuppressLint("SetTextI18n")
     private fun customDialogDeleteAllItem(historyDao: HistoryDao) {
         val customDialog = Dialog(this@HistoryActivity)
@@ -100,6 +101,8 @@ class HistoryActivity : AppCompatActivity() {
     private fun setupListOfHistory(historyEntity: ArrayList<HistoryEntity>, historyDao: HistoryDao) {
         lifecycleScope.launch {
             historyDao.fetchAllDates().collect {
+                val countItem = it.size
+
                 if (it.isNotEmpty()) {
                     val historyAdapter = HistoryAdapter(historyEntity
                     ) { deleteDate ->
@@ -108,6 +111,9 @@ class HistoryActivity : AppCompatActivity() {
                     binding.rvHistory.layoutManager = LinearLayoutManager(
                         this@HistoryActivity, LinearLayoutManager.VERTICAL, false)
                     binding.rvHistory.adapter = historyAdapter
+
+                    // When input data automatically to last index
+                    binding.rvHistory.layoutManager!!.smoothScrollToPosition(binding.rvHistory, null, countItem - 1)
 
                     binding.llHistoryText.visibility = View.VISIBLE
                     binding.rvHistory.visibility = View.VISIBLE

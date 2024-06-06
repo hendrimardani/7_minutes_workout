@@ -2,6 +2,8 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.7MinutesWorkout" parent="Theme.Material3.DayNight.NoActionBar">s
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/light_gray</item>
+        <item name="colorPrimaryDark">@color/dark_gray</item>
+        <item name="colorAccent">@color/light_gray_200</item>
     </style>
 </resources>

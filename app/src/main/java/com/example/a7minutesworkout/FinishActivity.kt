@@ -49,13 +49,14 @@ class FinishActivity : AppCompatActivity() {
         // Call object actionBar
         setSupportActionBar(binding.toolBarFinish)
         // Back to home
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar!!.title = "7 Menit Olahraga"
+        // Change font style text
+        binding.toolBarFinish.setTitleTextAppearance(this@FinishActivity, R.style.font_tangerine_bold)
         if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-            supportActionBar!!.title = "7 Menit Olahraga"
-            // Change font style text
-            binding.toolBarFinish.setTitleTextAppearance(this@FinishActivity, R.style.font_tangerine_bold)
         }
     }
+
     private fun addDateToDatabase(historyDao: HistoryDao) {
         val c = Calendar.getInstance()
         val dateTime = c.time
