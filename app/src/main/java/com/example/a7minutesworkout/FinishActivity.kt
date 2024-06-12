@@ -37,7 +37,7 @@ class FinishActivity : AppCompatActivity() {
         val dao = (application as HistoryApp).db.historyDao()
         addDateToDatabase(dao)
         MotionToast.createToast(this@FinishActivity,
-            "HISTORI TELAH DITAKMBAHKAN ☹️",
+            "HISTORI TELAH DITAKMBAHKAN",
             "Silahkan cek di histori !!!",
             MotionToastStyle.SUCCESS,
             MotionToast.GRAVITY_BOTTOM,
